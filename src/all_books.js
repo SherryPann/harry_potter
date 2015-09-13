@@ -1,12 +1,12 @@
-var Book = require(./book.js);
+var Book = require("./book.js");
 
 function loadAllBooks(){
     return [
-        new Book("Harry Potter and the Philosopher's Stone"),
-        new Book("Harry Potter and the Chamber of Secrets"),
-        new Book("Harry Potter and the Prisoner of Azkaban"),
-        new Book("Harry Potter and the Goblet of Fire"),
-        new Book("Harry Potter and the Order of Phoenix")
+        new Book("HarryPotterOne"),
+        new Book("HarryPotterTwo"),
+        new Book("HarryPotterThree"),
+        new Book("HarryPotterFour"),
+        new Book("HarryPotterFive")
     ]
 }
 
