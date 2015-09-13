@@ -11,7 +11,7 @@ Basket.prototype.addBook = function(addBook){
         theBook.count++;
     }
     else{
-        this.books.push({book:addBook,count:1});
+        this.books.push(addBook);
     }
 }
 
