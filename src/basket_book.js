@@ -2,7 +2,7 @@ var Book = require("./book.js");
 
 function BasketBook(name,count){
     this.name = name;
-    this.count = count;
+    this.count = count||1;
 }
 
 BasketBook.prototype.getPrice = function(){
