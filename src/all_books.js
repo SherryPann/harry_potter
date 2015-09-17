@@ -1,6 +1,7 @@
 var Book = require("./book.js");
 
 function loadAllBooks(){
+
     return [
         new Book("HarryPotterOne"),
         new Book("HarryPotterTwo"),
@@ -8,6 +9,7 @@ function loadAllBooks(){
         new Book("HarryPotterFour"),
         new Book("HarryPotterFive")
     ]
+
 }
 
 module.exports = loadAllBooks();

@@ -15,6 +15,7 @@ Basket.prototype.findSameBook = function(addBook){
 
 
 Basket.prototype.addBook = function(addBook){
+
     var that = this;
     var theBook = this.findSameBook(addBook);
 
@@ -27,6 +28,7 @@ Basket.prototype.addBook = function(addBook){
 }
 
 Basket.prototype.getPermutation = function(){
+
     var permutation = [];
 
     this.books.forEach(function(book){
@@ -40,6 +42,7 @@ Basket.prototype.getPermutation = function(){
 }
 
 Basket.prototype.getDiscountRate = function(permutation){
+
     var discountType = permutation.length;
     var discountRate = 0;
 
@@ -61,7 +64,6 @@ Basket.prototype.getSubTotal = function(permutation){
 
 }
 
-
 Basket.prototype.getSumTotal = function(){
     var Sum = 0;
 
@@ -74,10 +76,5 @@ Basket.prototype.getSumTotal = function(){
 
     return Sum.toFixed(2);
 }
-
-
-
-
-
 
 module.exports = Basket;

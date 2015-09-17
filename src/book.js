@@ -1,4 +1,5 @@
 function Book(name){
+
     this.name = name;
     this.price = 8;
 }
