@@ -12,5 +12,5 @@ describe("getSumTotal",function(){
         expect(console.log).toHaveBeenCalledWith("45.60");
 
     });
-    
+
 })
