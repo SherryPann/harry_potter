@@ -4,17 +4,6 @@ function Basket(books){
     this.books = books||[];
 }
 
-Basket.prototype.addBook = function(addBook){
-    var that = this;
-    var theBook = this.findSameBook(addBook)
-    if(theBook){
-        theBook.count++;
-    }
-    else{
-        this.books.push(addBook);
-    }
-}
-
 Basket.prototype.findSameBook = function(addBook){
 
     for(var i = 0; i < this.books.length;i++){
@@ -24,20 +13,18 @@ Basket.prototype.findSameBook = function(addBook){
     }
 }
 
-Basket.prototype.getSumTotal = function(){
-    var Sum = 0;
-    do{
-        var permutation = this.getPermutation();
-        if(permutation.length>0){
-            var price  = permutation[0].getPrice();
-            var rate = this.getDiscountRate(permutation);
-            Sum +=  price*(1-rate)*permutation.length;
-        }
-    } while(permutation.length > 0)
 
-    return Sum.toFixed(2);
+Basket.prototype.addBook = function(addBook){
+    var that = this;
+    var theBook = this.findSameBook(addBook);
+
+    if(theBook){
+        theBook.count++;
+    }
+    else{
+        this.books.push(addBook);
+    }
 }
-
 
 Basket.prototype.getPermutation = function(){
     var permutation = [];
@@ -64,6 +51,33 @@ Basket.prototype.getDiscountRate = function(permutation){
 
     return discountRate;
 }
+
+Basket.prototype.getSubTotal = function(permutation){
+
+    var price = permutation[0].getPrice();
+    var rate = this.getDiscountRate(permutation);
+    var subTotal = price * (1-rate)*permutation.length;
+    return subTotal;
+
+}
+
+
+Basket.prototype.getSumTotal = function(){
+    var Sum = 0;
+
+    do{
+        var permutation = this.getPermutation();
+        if(permutation.length>0){
+            Sum += this.getSubTotal(permutation);
+        }
+    } while(permutation.length > 0)
+
+    return Sum.toFixed(2);
+}
+
+
+
+
 
 
 module.exports = Basket;
