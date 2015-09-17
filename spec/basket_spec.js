@@ -28,5 +28,27 @@ describe("Basket",function(){
             var sumTotal = basket.getSumTotal();
             expect(sumTotal).toEqual("38.40");
         });
+
+        it("should return the sumtotal $8.00 of one book",function(){
+            var books = [new Basket_Book("harryOne",1)];
+            basket = new Basket(books);
+            var sumTotal = basket.getSumTotal();
+            expect(sumTotal).toEqual("8.00");
+        });
+
+        it("should return the sumTotal $16.00 of two same books",function(){
+            var books = [new Basket_Book("harryOne",2)];
+            basket = new    Basket(books);
+            var sumTotal = basket.getSumTotal();
+            expect(sumTotal).toEqual("16.00");
+        });
+
+        it("should return the sumTotal $15.20",function(){
+            var books = [new Basket_Book("harryOne",1),new Basket_Book("harryTwo",1)];
+            basket = new    Basket(books);
+            var sumTotal = basket.getSumTotal();
+            expect(sumTotal).toEqual("15.20");
+
+        })
     });
 })
