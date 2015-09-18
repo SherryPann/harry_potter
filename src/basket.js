@@ -1,4 +1,4 @@
-var discounts = require("./all_discounts.js");
+var Calculator = require("./calculator.js");
 
 function Basket(books){
     this.books = books||[];
@@ -13,7 +13,6 @@ Basket.prototype.findSameBook = function(addBook){
     }
 }
 
-
 Basket.prototype.addBook = function(addBook){
     
     var theBook = this.findSameBook(addBook);
@@ -26,54 +25,13 @@ Basket.prototype.addBook = function(addBook){
     }
 }
 
-Basket.prototype.getPermutation = function(){
-
-    var permutation = [];
-
-    this.books.forEach(function(book){
-        if(book.count > 0){
-            permutation.push(book);
-            book.count --;
-        }
-    });
-
-    return permutation;
-}
-
-Basket.prototype.getDiscountRate = function(permutation){
-
-    var discountType = permutation.length;
-    var discountRate = 0;
-
-    for(var i = 0;i < discounts.length; i++){
-        if(discounts[i].type === discountType){
-            discountRate =  discounts[i].rate;
-        }
-    }
-
-    return discountRate;
-}
-
-Basket.prototype.getSubTotal = function(permutation){
-
-    var price = permutation[0].price;
-    var rate = this.getDiscountRate(permutation);
-    var subTotal = price * (1-rate)*permutation.length;
-    return subTotal;
-
-}
-
 Basket.prototype.getSumTotal = function(){
     var Sum = 0;
 
-    do{
-        var permutation = this.getPermutation();
-        if(permutation.length>0){
-            Sum += this.getSubTotal(permutation);
-        }
-    } while(permutation.length > 0)
+    var calculator = new Calculator(this.books);
+    Sum = calculator.getSumTotal();
 
-    return Sum.toFixed(2);
+    return Sum;
 }
 
 module.exports = Basket;
