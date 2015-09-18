@@ -15,8 +15,7 @@ Basket.prototype.findSameBook = function(addBook){
 
 
 Basket.prototype.addBook = function(addBook){
-
-    var that = this;
+    
     var theBook = this.findSameBook(addBook);
 
     if(theBook){
