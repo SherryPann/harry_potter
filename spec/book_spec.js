@@ -1,13 +1,22 @@
 var Book = require("../src/book.js");
 
-describe("Book",function(){
+describe('Book',function(){
+    var book;
 
-    it("should have name  and price as parameters",function(){
+    beforeEach(function(){
 
-        var book = new Book('harry');
+        book = new Book('harry',2);
 
-        expect(book.name).toBe('harry');
-        expect(book.price).toBe(8);
     });
 
+    describe('constructor',function(){
+
+        it('should have name and count as paramters',function(){
+
+            expect(book.name).toBe('harry');
+            expect(book.count).toBe(2);
+            expect(book.price).toBe(8);
+
+        });
+    });
 })

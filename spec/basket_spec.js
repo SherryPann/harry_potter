@@ -1,10 +1,10 @@
 var Basket = require("../src/basket.js");
-var Basket_Book = require("../src/basket_book.js");
+var Book = require("../src/book.js");
 
 describe("Basket",function(){
 
     var basket;
-    var books = [new Basket_Book('harryOne',2),new Basket_Book("harryTwo",3)];
+    var books = [new Book('harryOne',2),new Book("harryTwo",3)];
 
     beforeEach(function(){
 
@@ -22,16 +22,16 @@ describe("Basket",function(){
     describe("addBook",function(){
 
        it("can add book to books",function(){
-           basket.addBook(new   Basket_Book('harryOne',1));
+           basket.addBook(new Book('harryOne',1));
 
-           expect(basket.books).toEqual([new Basket_Book('harryOne',3),new Basket_Book("harryTwo",3)]);
+           expect(basket.books).toEqual([new Book('harryOne',3),new Book("harryTwo",3)]);
        });
     });
 
     describe("getSumtotal",function(){
 
         it("should return sumtotal after best discount",function(){
-            var books = [new  Basket_Book('harryOne',2), new  Basket_Book("harryTwo",3)];
+            var books = [new Book('harryOne',2), new Book("harryTwo",3)];
             basket = new Basket(books);
             var sumTotal = basket.getSumTotal();
 
@@ -39,7 +39,7 @@ describe("Basket",function(){
         });
 
         it("should return the sumtotal $8.00 of one book",function(){
-            var books = [new Basket_Book("harryOne",1)];
+            var books = [new Book("harryOne",1)];
             basket = new Basket(books);
             var sumTotal = basket.getSumTotal();
 
@@ -47,7 +47,7 @@ describe("Basket",function(){
         });
 
         it("should return the sumTotal $16.00 of two same books",function(){
-            var books = [new Basket_Book("harryOne",2)];
+            var books = [new Book("harryOne",2)];
             basket = new Basket(books);
             var sumTotal = basket.getSumTotal();
 
@@ -55,7 +55,7 @@ describe("Basket",function(){
         });
 
         it("should return the sumTotal $15.20",function(){
-            var books = [new Basket_Book("harryOne",1),new Basket_Book("harryTwo",1)];
+            var books = [new Book("harryOne",1),new Book("harryTwo",1)];
             basket = new Basket(books);
             var sumTotal = basket.getSumTotal();
 
@@ -64,5 +64,5 @@ describe("Basket",function(){
         });
     });
 
-    
+
 })

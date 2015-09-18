@@ -1,5 +1,5 @@
 var Basket = require("./basket.js");
-var Basket_Book = require("./basket_book.js");
+var Book = require("./book.js");
 
 function getSumTotal(inputs){
 
@@ -7,7 +7,7 @@ function getSumTotal(inputs){
     var basket = new Basket();
 
     inputs.forEach(function(input){
-        var addBook = new Basket_Book(input);
+        var addBook = new Book(input);
         basket.addBook(addBook);
     });
 

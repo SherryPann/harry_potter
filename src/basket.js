@@ -57,7 +57,7 @@ Basket.prototype.getDiscountRate = function(permutation){
 
 Basket.prototype.getSubTotal = function(permutation){
 
-    var price = permutation[0].getPrice();
+    var price = permutation[0].price;
     var rate = this.getDiscountRate(permutation);
     var subTotal = price * (1-rate)*permutation.length;
     return subTotal;
