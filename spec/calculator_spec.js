@@ -45,6 +45,11 @@ describe("Calculator",function(){
                 expect(sumTotal).toEqual("15.20");
 
             });
+            it("should return the sumTotal $51.2",function(){
+                var books = [new Book("harryOne",2),new Book("harryTwo",2),new Book("harryThree",2),new Book("harryFour",1),new Book("harryFive",1)];
+                var calculator = new Calculator(books);
+                expect(calculator.getSumTotal()).toEqual("51.20");
+            })
         });
 
 

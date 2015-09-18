@@ -37,18 +37,34 @@ Calculator.prototype.getSubTotal = function(permutation){
     return subTotal;
 }
 
+
+Calculator.prototype.isSpecialCase = function(permutations){
+
+    var specialCase = permutations.filter(function(val){
+        return val.length === 5||val.length ===3;
+    });
+
+    if(specialCase.length === 2){
+        return true;
+    }
+}
+
+
 Calculator.prototype.getSumTotal = function(){
     var Sum = 0;
-
+    var permutations = [];
     do{
         var permutation = this.getPermutation();
         if(permutation.length>0){
+            permutations.push(permutation);
             Sum += this.getSubTotal(permutation);
         }
     } while(permutation.length > 0)
     
+    if(this.isSpecialCase(permutations)){
+        Sum -= 0.4;
+    }
     return Sum.toFixed(2);
 }
-
 
 module.exports = Calculator;
