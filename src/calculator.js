@@ -37,18 +37,21 @@ Calculator.prototype.getSubTotal = function(permutation){
     return subTotal;
 }
 
-
 Calculator.prototype.isSpecialCase = function(permutations){
+    var flag5 = false;
+    var flag3 = false;
 
-    var specialCase = permutations.filter(function(val){
-        return val.length === 5||val.length ===3;
+    var specialCase = permutations.forEach(function(val){
+        if(val.length === 5){
+            flag5 = true;
+        }
+        else if(val.length === 3){
+            flag3 = true;
+        }
     });
 
-    if(specialCase.length === 2){
-        return true;
-    }
+    return flag5 && flag3;
 }
-
 
 Calculator.prototype.getSumTotal = function(){
     var Sum = 0;
@@ -60,7 +63,7 @@ Calculator.prototype.getSumTotal = function(){
             Sum += this.getSubTotal(permutation);
         }
     } while(permutation.length > 0)
-    
+
     if(this.isSpecialCase(permutations)){
         Sum -= 0.4;
     }
