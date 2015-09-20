@@ -11,6 +11,7 @@ Basket.prototype.findSameBook = function(addBook){
             return this.books[i];
         }
     }
+    return false;
 }
 
 Basket.prototype.addBook = function(addBook){
