@@ -12,9 +12,9 @@ function getSumTotal(inputs){
         basket.addBook(addBook);
     });
 
-    var calculator = new Calculator(basket.books);
+    var calculator = new Calculator();
 
-    sum = calculator.getSumTotal();
+    sum = calculator.getSumTotal(basket.books);
     console.log(sum);
 
 }

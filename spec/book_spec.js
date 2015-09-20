@@ -5,7 +5,7 @@ describe('Book',function(){
 
     beforeEach(function(){
 
-        book = new Book('harry',2);
+        book = new Book('harry', 2);
 
     });
 

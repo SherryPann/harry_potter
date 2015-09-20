@@ -6,7 +6,7 @@ describe("getSumTotal",function(){
 
         spyOn(console, 'log');
 
-        var inputs = ['HarryOne','HarryOne','HarryOne','HarryTwo','HarryTwo','HarryTwo'];
+        var inputs = ['HarryOne', 'HarryOne', 'HarryOne', 'HarryTwo', 'HarryTwo', 'HarryTwo'];
         var sum = getSumTotal(inputs);
 
         expect(console.log).toHaveBeenCalledWith("45.60");
