@@ -26,13 +26,4 @@ Basket.prototype.addBook = function(addBook){
     }
 }
 
-Basket.prototype.getSumTotal = function(){
-    var Sum = 0;
-
-    var calculator = new Calculator(this.books);
-    Sum = calculator.getSumTotal();
-
-    return Sum;
-}
-
 module.exports = Basket;

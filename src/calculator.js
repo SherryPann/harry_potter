@@ -54,20 +54,20 @@ Calculator.prototype.isSpecialCase = function(permutations){
 }
 
 Calculator.prototype.getSumTotal = function(){
-    var Sum = 0;
+    var sum = 0;
     var permutations = [];
     do{
         var permutation = this.getPermutation();
         if(permutation.length>0){
             permutations.push(permutation);
-            Sum += this.getSubTotal(permutation);
+            sum += this.getSubTotal(permutation);
         }
     } while(permutation.length > 0)
 
     if(this.isSpecialCase(permutations)){
-        Sum -= 0.4;
+        sum -= 0.4;
     }
-    return Sum.toFixed(2);
+    return sum.toFixed(2);
 }
 
 module.exports = Calculator;
