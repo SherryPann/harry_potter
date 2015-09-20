@@ -1,13 +1,11 @@
 var discounts = require("./all_discounts.js");
 
-function Calculator(books){
-    this.books = books;
-}
+function Calculator(){}
 
-Calculator.prototype.getPermutation = function(){
+Calculator.prototype.getPermutation = function(books){
     var permutation = [];
 
-    this.books.forEach(function(book){
+    books.forEach(function(book){
         if(book.count > 0){
             permutation.push(book);
             book.count --;
@@ -31,9 +29,12 @@ Calculator.prototype.getDiscountRate = function(permutation){
 }
 
 Calculator.prototype.getSubTotal = function(permutation){
+
     var price = permutation[0].price;
     var rate = this.getDiscountRate(permutation);
+
     var subTotal = price * (1-rate)*permutation.length;
+
     return subTotal;
 }
 
@@ -53,11 +54,13 @@ Calculator.prototype.isSpecialCase = function(permutations){
     return flag5 && flag3;
 }
 
-Calculator.prototype.getSumTotal = function(){
+Calculator.prototype.getSumTotal = function(books){
     var sum = 0;
     var permutations = [];
+
     do{
-        var permutation = this.getPermutation();
+        var permutation = this.getPermutation(books);
+
         if(permutation.length>0){
             permutations.push(permutation);
             sum += this.getSubTotal(permutation);
