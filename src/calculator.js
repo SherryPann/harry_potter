@@ -42,7 +42,7 @@ Calculator.prototype.isSpecialCase = function(permutations){
     var flag5 = false;
     var flag3 = false;
 
-    var specialCase = permutations.forEach(function(val){
+    permutations.forEach(function(val){
         if(val.length === 5){
             flag5 = true;
         }
